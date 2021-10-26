@@ -21,10 +21,16 @@ function App() {
     },
   ]);
 
+  // Add tray
   const addTray = (tray) => {
     const id = Math.floor(Math.random() * 1000 + 1);
     const newTray = { id, ...tray };
     setTrays([...trays, newTray]);
+  };
+
+  // Delete tray
+  const deleteTray = (id) => {
+    setTrays(trays.filter((tray) => tray.id !== id));
   };
 
   return (
@@ -34,7 +40,11 @@ function App() {
       {showAddTray && <AddTray onAdd={addTray} />}
 
       {/* Display all available trays. */}
-      {trays.length > 0 ? <Trays trays={trays} /> : "No trays to show."}
+      {trays.length > 0 ? (
+        <Trays trays={trays} onDelete={deleteTray} />
+      ) : (
+        "No trays to show."
+      )}
     </div>
   );
 }
