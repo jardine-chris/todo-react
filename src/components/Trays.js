@@ -1,10 +1,10 @@
 import Tray from "./Tray";
 
-const Trays = ({ trays, onDelete }) => {
+const Trays = ({ trays }) => {
   return (
     <>
       {trays.map((tray) => (
-        <Tray key={tray.id} tray={tray} onDelete={onDelete} />
+        <Tray key={tray.id} tray={tray} />
       ))}
     </>
   );
