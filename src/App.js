@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="application">
       {/* Button to show the form to add a new tray. */}
-      <Button text="Add Tray" onAdd={() => setShowAddTray(!showAddTray)} />
+      <Button className="nav-btn" text="Add Tray" onAdd={() => setShowAddTray(!showAddTray)} />
       {showAddTray && <AddTray onAdd={addTray} />}
 
       {/* Display all available trays. */}
