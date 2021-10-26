@@ -21,7 +21,7 @@ const Tray = ({ tray, onDelete }) => {
       {cards.length > 0 ? <Cards cards={cards} /> : "No cards to show."}
 
       <Button text="Add Card" onAdd={() => setShowAddCard(!showAddCard)} />
-      {showAddCard && <AddCard onAdd={addCard} />}
+      {showAddCard && <AddCard onAdd={addCard} showForm={setShowAddCard} />}
     </div>
   );
 };
