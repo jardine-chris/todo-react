@@ -6,13 +6,16 @@ body {
 }
 
 .application {
+
     .tray {
+        display: flex;
+        flex-direction: column;
         margin: 1em 0;
         padding: 0.5em;
         background-color: $light-grey;
 
         .card {
-            background-color: red;
+            background-color: white;
         }
     }
 }

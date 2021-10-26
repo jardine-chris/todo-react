@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddCard = ({ onAdd }) => {
+const AddCard = ({ onAdd, showForm }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -18,6 +18,8 @@ const AddCard = ({ onAdd }) => {
     // Reset the form field(s).
     setTitle("");
     setContent("");
+
+    {showForm(false)};
   };
 
   return (
