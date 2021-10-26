@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Trays from "./components/Trays";
 
 function App() {
+  const [trays, setTrays] = useState([
+    {
+      id: 1,
+      title: "To Do",
+    },
+    {
+      id: 2,
+      title: "Doing",
+    },
+    {
+      id: 3,
+      title: "Done",
+    },
+  ]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="application">
+      {trays.length > 0 ? <Trays trays={trays} /> : "No trays to show."}
     </div>
   );
 }
