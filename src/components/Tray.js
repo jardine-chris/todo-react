@@ -15,7 +15,7 @@ const Tray = ({ tray, onDelete }) => {
 
   return (
     <div className="tray" onDoubleClick={() => onDelete(tray.id)}>
-      {tray.title}
+      <h3>{tray.title}</h3>
 
       {/* Display all available cards. */}
       {cards.length > 0 ? <Cards cards={cards} /> : "No cards to show."}

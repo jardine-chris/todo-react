@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddTray = ({ onAdd }) => {
+const AddTray = ({ onAdd, showForm }) => {
   const [title, setTitle] = useState("");
 
   const onSubmit = (e) => {
@@ -16,6 +16,7 @@ const AddTray = ({ onAdd }) => {
 
     // Reset the form field(s).
     setTitle("");
+    {showForm(false)};
   };
 
   return (
