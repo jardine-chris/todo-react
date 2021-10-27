@@ -16,14 +16,15 @@ const AddTray = ({ onAdd, showForm }) => {
 
     // Reset the form field(s).
     setTitle("");
-    {showForm(false)};
+    showForm(false);
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="form-control" onSubmit={onSubmit}>
       <label for="tray-title">Title</label>
       <input
         type="text"
+        autoFocus="autofocus"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />

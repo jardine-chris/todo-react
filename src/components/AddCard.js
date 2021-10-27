@@ -19,20 +19,22 @@ const AddCard = ({ onAdd, showForm }) => {
     setTitle("");
     setContent("");
 
-    {showForm(false)};
+    showForm(false);
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label for="card-title">Title</label>
+    <form className="form-control" onSubmit={onSubmit}>
+      <label for="card-title">What are you doing?</label>
       <input
         type="text"
+        placeholder="Finish this project"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label for="card-content">Content</label>
+      <label for="card-content">How will you do it?</label>
       <input
         type="text"
+        placeholder="Research how exactly a posi-trac rear end in a Plymouth works."
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
