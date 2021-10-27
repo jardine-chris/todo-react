@@ -1,20 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Red+Hat+Text:wght@300;400;500;600;700&display=swap");
 body {
-  background-color: #1e1b18;
+  font-family: "Red Hat Text", sans-serif;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #121212;
 }
 
+.application {
+  display: flex;
+  flex-direction: column;
+}
 .application .tray {
+  border-radius: 0.25em;
   display: flex;
   flex-direction: column;
   margin: 1em 0;
   padding: 0.5em;
-  background-color: #e1e4e7;
+  background-color: #1e1e1e;
+}
+.application .tray h3 {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 0.65px;
+  color: rgba(255, 255, 255, 0.9);
 }
 .application .tray .card {
-  background-color: white;
+  border-radius: 0.25em;
+  border: 0.5px rgba(0, 0, 0, 0.2) solid;
+  padding: 0 0.5em;
+  margin-bottom: 0.5em;
+  background-color: #292929;
+}
+.application .tray .card p {
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.nav-btn {
-  background-color: "red";
+.btn {
+  padding: 1em;
+  border: none;
+  border-radius: 0.25em;
+  text-transform: uppercase;
+  background-color: #bb86fc;
+  color: #000;
 }
 
 /*# sourceMappingURL=index.css.map */

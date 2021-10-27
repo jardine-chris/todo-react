@@ -1,25 +1,55 @@
-$light-black: #1e1b18;
-$light-grey: #e1e4e7;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Red+Hat+Text:wght@300;400;500;600;700&display=swap');
+
+$dark: #121212;
+$light-black: #1e1e1e;
+$grey: #292929;
+$pankkkk: #e83e79;
+$base-border-radius: 0.25em;
 
 body {
-    background-color: $light-black;
+    font-family: 'Red Hat Text', sans-serif;
+    color:rgba(255, 255, 255, 0.6);
+    background-color: $dark;
 }
 
 .application {
+    display: flex;
+    flex-direction: column;
 
     .tray {
+        border-radius: $base-border-radius;
         display: flex;
         flex-direction: column;
         margin: 1em 0;
         padding: 0.5em;
-        background-color: $light-grey;
+        background-color: $light-black;
+
+        h3 {
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.65px;
+            color: rgba(255, 255, 255, 0.9);
+        }
 
         .card {
-            background-color: white;
+            border-radius: $base-border-radius;
+            border: 0.5px rgba(0, 0, 0, 0.2) solid;
+            padding: 0 0.5em;
+            margin-bottom: 0.5em;
+            background-color: $grey;
+            
+            p {
+                // font-family: 'Red Hat Text', sans-serif;
+                color: rgba(255, 255, 255, 0.6);
+            }
         }
     }
 }
-
-.nav-btn {
-    background-color: "red";
+.btn {
+    padding: 1em;
+    border: none;
+    border-radius: $base-border-radius;
+    text-transform: uppercase;
+    background-color: #bb86fc;
+    color: #000;
 }
+
