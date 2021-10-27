@@ -19,7 +19,7 @@ const AddCard = ({ onAdd, showForm }) => {
     setTitle("");
     setContent("");
 
-    {showForm(false)};
+    showForm(false);
   };
 
   return (

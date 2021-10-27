@@ -16,7 +16,7 @@ const AddTray = ({ onAdd, showForm }) => {
 
     // Reset the form field(s).
     setTitle("");
-    {showForm(false)};
+    showForm(false);
   };
 
   return (
