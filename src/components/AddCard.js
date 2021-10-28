@@ -39,7 +39,8 @@ const AddCard = ({ onAdd, isOpen, setFade }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label for="card-content">Content</label>
+
+      <label for="card-content">Notes</label>
       <input
         type="text"
         value={content}
