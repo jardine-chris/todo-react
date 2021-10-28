@@ -6,13 +6,17 @@ import { BiDownArrowCircle } from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
 
 const Tray = ({ tray, onDelete }) => {
-  const [showAddCard, setShowAddCard] = useState(false);
   const [cards, setCards] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const addCard = (card) => {
     const id = Math.floor(Math.random() * 1000 + 1);
     const newCard = { id, ...card };
     setCards([...cards, newCard]);
+  };
+
+  const toggleFade = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -37,8 +41,10 @@ const Tray = ({ tray, onDelete }) => {
         </div>
       )}
 
-      <Button text="Add Card" onAdd={() => setShowAddCard(!showAddCard)} />
-      {showAddCard && <AddCard onAdd={addCard} showForm={setShowAddCard} />}
+      <Button text="Add Card" onAdd={() => toggleFade()} />
+      <div className="fade-container">
+        <AddCard onAdd={addCard} isOpen={isOpen} setFade={setIsOpen} />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
-const AddTray = ({ onAdd, showForm }) => {
+const AddTray = ({ onAdd, isOpen, setFade }) => {
   const [title, setTitle] = useState("");
 
   const onSubmit = (e) => {
@@ -16,11 +16,20 @@ const AddTray = ({ onAdd, showForm }) => {
 
     // Reset the form field(s).
     setTitle("");
-    showForm(false);
   };
 
+  const handleChange = useCallback(
+    (event) => {
+      setFade(false);
+    },
+    [setFade]
+  );
+
   return (
-    <form className="form-control" onSubmit={onSubmit}>
+    <form
+      className={"form-control fade-in-down " + (!isOpen ? "" : "active")}
+      onSubmit={onSubmit}
+    >
       <label for="tray-title">Title</label>
       <input
         type="text"
@@ -28,7 +37,12 @@ const AddTray = ({ onAdd, showForm }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <input type="submit" value="Add" />
+      <input
+        class="add-btn"
+        type="submit"
+        value="Save"
+        onClick={handleChange}
+      />
     </form>
   );
 };
