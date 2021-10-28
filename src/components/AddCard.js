@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
-const AddCard = ({ onAdd, showForm }) => {
+const AddCard = ({ onAdd, isOpen, setFade }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -12,33 +12,45 @@ const AddCard = ({ onAdd, showForm }) => {
       return;
     }
 
-    // Add the tray with the specified props.
+    // Add the card with the specified props.
     onAdd({ title, content });
 
     // Reset the form field(s).
     setTitle("");
     setContent("");
-
-    showForm(false);
   };
 
+  const handleChange = useCallback(
+    (event) => {
+      setFade(false);
+    },
+    [setFade]
+  );
+
   return (
-    <form className="form-control" onSubmit={onSubmit}>
-      <label for="card-title">What are you doing?</label>
+    <form
+      className={"form-control fade-in-down " + (!isOpen ? "" : "active")}
+      onSubmit={onSubmit}
+    >
+      <label for="card-title">Title</label>
       <input
         type="text"
-        placeholder="Finish this project"
+        autoFocus="autofocus"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label for="card-content">How will you do it?</label>
+      <label for="card-content">Notes</label>
       <input
         type="text"
-        placeholder="Research how exactly a posi-trac rear end in a Plymouth works."
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <input type="submit" value="Add" />
+      <input
+        class="add-btn"
+        type="submit"
+        value="Save"
+        onClick={handleChange}
+      />
     </form>
   );
 };

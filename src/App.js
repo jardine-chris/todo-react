@@ -6,8 +6,8 @@ import { BiUpArrowCircle } from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
 
 function App() {
-  const [showAddTray, setShowAddTray] = useState(false);
   const [trays, setTrays] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Add tray
   const addTray = (tray) => {
@@ -21,11 +21,23 @@ function App() {
     setTrays(trays.filter((tray) => tray.id !== id));
   };
 
+  const toggleFade = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="application">
       {/* Button to show the form to add a new tray. */}
-      <Button text="Add Tray" onAdd={() => setShowAddTray(!showAddTray)} />
-      {showAddTray && <AddTray onAdd={addTray} showForm={setShowAddTray} />}
+      <Button
+        text="Add Tray"
+        onAdd={() => {
+          toggleFade();
+        }}
+      />
+      
+      <div className="fade-container">
+        <AddTray onAdd={addTray} isOpen={isOpen} setFade={setIsOpen} />
+      </div>
 
       {/* Display all available trays. */}
       {trays.length > 0 ? (
@@ -38,8 +50,8 @@ function App() {
             alignItems: "center",
           }}
         >
-          <IconContext.Provider value={{ size: '3em'}}>
-          <BiUpArrowCircle />
+          <IconContext.Provider value={{ size: "3em" }}>
+            <BiUpArrowCircle />
           </IconContext.Provider>
           Add a tray to begin
         </div>
