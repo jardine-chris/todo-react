@@ -124,6 +124,7 @@ body {
   visibility: visible;
   max-height: 100%;
   opacity: 1;
+  transform: translateY(0em);
 }
 
 @media (min-width: 576px) {
