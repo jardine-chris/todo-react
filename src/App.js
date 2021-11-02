@@ -34,28 +34,30 @@ function App() {
           toggleFade();
         }}
       />
-      
+
       <div className="fade-container">
         <AddTray onAdd={addTray} isOpen={isOpen} setFade={setIsOpen} />
       </div>
 
       {/* Display all available trays. */}
-      {trays.length > 0 ? (
-        <Trays trays={trays} onDelete={deleteTray} />
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <IconContext.Provider value={{ size: "3em" }}>
-            <BiUpArrowCircle />
-          </IconContext.Provider>
-          Add a tray to begin
-        </div>
-      )}
+      <div className="tray-stuff">
+        {trays.length > 0 ? (
+          <Trays trays={trays} onDelete={deleteTray} />
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <IconContext.Provider value={{ size: "3em" }}>
+              <BiUpArrowCircle />
+            </IconContext.Provider>
+            Add a tray to begin
+          </div>
+        )}
+      </div>
     </div>
   );
 }

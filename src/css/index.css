@@ -7,7 +7,9 @@ body {
 
 .application {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .application .tray {
   border-radius: 0.25em;
@@ -41,6 +43,7 @@ body {
   text-transform: uppercase;
   background-color: #bb86fc;
   color: #000;
+  flex-basis: 100%;
 }
 
 .form-control {
@@ -98,42 +101,59 @@ body {
   color: #000;
 }
 
+.fade-container {
+  width: 100%;
+}
+
+.tray-stuff {
+  width: 100%;
+}
+
 .fade-in-down {
   margin: 0 1em;
   padding: 0 1em;
   visibility: hidden;
   max-height: 0;
-  transition: 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   opacity: 0;
-  transform: translateY(-10em);
 }
 
 .fade-in-down.active {
   margin: 1em;
   padding: 0.5em 1em;
   visibility: visible;
-  max-height: 12em;
+  max-height: 100%;
   opacity: 1;
-  transform: translateY(0em);
 }
 
-.fade-in-up {
-  margin: 0 1em;
-  padding: 0 1em;
-  visibility: hidden;
-  max-height: 0;
-  transition: 0.5s ease-in-out;
-  opacity: 0;
-  transform: translateY(10em);
-}
+@media (min-width: 576px) {
+  .tray-stuff {
+    display: flex;
+  }
 
-.fade-in-up.active {
-  margin: 1em;
-  padding: 0.5em 1em;
-  visibility: visible;
-  max-height: 10em;
-  opacity: 1;
-  transform: translateY(0em);
+  .tray {
+    margin: 10em;
+    width: 20%;
+  }
+
+  .form-control {
+    width: 33%;
+  }
+
+  .fade-in-down {
+    margin: 0;
+    padding: 0;
+    max-width: 0;
+  }
+
+  .fade-in-down.active {
+    margin: 1em;
+    padding: 0.5em 1em;
+    visibility: visible;
+    max-width: 100%;
+    opacity: 1;
+    transform: translateY(0em);
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
